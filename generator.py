@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 from ServerObj import Server
 import random, argparse,json
 

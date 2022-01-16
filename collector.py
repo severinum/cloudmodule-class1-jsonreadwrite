@@ -28,4 +28,21 @@ if respStatus != 200:
     sys.exit("Exit")
 
 # Response == 200
-print(resp.data.decode('utf-8'))
+jsonData = resp.data.decode('utf-8')
+
+print(jsonData)
+
+data = json.loads(jsonData)
+
+
+under = 0
+over = 0
+for server, cpuUsage in data.items():
+    if cpuUsage < 50:
+        under += 1
+    else:
+        over += 1
+
+resultDict = {"under": under, "over": over}
+
+print(resultDict)
